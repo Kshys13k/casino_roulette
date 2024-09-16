@@ -31,4 +31,5 @@ def roulette_simulation(bet):
     if (result > 18):
         return -bet
 
+
 game()
