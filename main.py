@@ -10,7 +10,7 @@ def game(g,v,l):
     max_loss = 0
     time_on_minus = 0
 
-    for i in range(g):
+    for i in range(g*1000):
         result = roulette_simulation(bet)
         money_gained += result
         games+=1
@@ -21,7 +21,7 @@ def game(g,v,l):
         else:
             bet = 1
 
-        if games%v==0:
+        if games%(v*100)==0:
             # os.system("clear")
             print("#####################")
             print("Games played: " + str(games))
@@ -44,10 +44,13 @@ def roulette_simulation(bet):
 
 def main():
     parser=argparse.ArgumentParser(description=" ", epilog=" ")
-    parser.add_argument('-g', metavar='games', type=int, default=1000, help='number of games to play (in thousands)')
-    parser.add_argument('-v', metavar='verbose', type=int, default=100, help='verbose, how often print an update about gained money (in hundreds)')
-    parser.add_argument('-l', metavar='loses', action="store_true", help='flag; if active script shows loses')
-    game(g=parser.g, v=parser.v, l=parser.l)
+    parser.add_argument('-g', metavar='games', type=int, default=1000, help='Games, number of games to play (in thousands)')
+    parser.add_argument('-v', metavar='verbose', type=int, default=100, help='Verbose, how often print an update about gained money (in hundreds)')
+    parser.add_argument('-l', action="store_true", help='Loses flag; if active script shows loses statistics')
+
+    args = parser.parse_args()
+
+    game(g=args.g, v=args.v, l=args.l)
 
 if __name__ == "__main__":
     main()
