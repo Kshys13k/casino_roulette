@@ -21,7 +21,7 @@ def game(g,v,l):
         else:
             bet = 1
 
-        if (l):
+        if l:
             if money_gained < 0:
                 time_on_minus += 1
                 if money_gained < max_loss:
@@ -33,7 +33,7 @@ def game(g,v,l):
             print("Games played: " + str(games))
             print("Money gained: " + str(money_gained))
             print("Biggest bet: " + str(biggest_bet))
-            if(l):
+            if l:
                 print("Max loss: " + str(max_loss) + ", number of games on minus: " + str(time_on_minus))
 
 
