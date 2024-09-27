@@ -37,9 +37,9 @@ def game(g,v,l):
 
 def roulette_simulation(bet):
     result=random.randint(0,37)
-    if(result<=18):
+    if(result < 18):
         return bet
-    if (result > 18):
+    if (result >= 18):
         return -bet
 
 def main():
