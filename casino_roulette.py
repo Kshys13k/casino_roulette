@@ -46,7 +46,7 @@ def roulette_simulation(bet):
 
 def main():
     parser=argparse.ArgumentParser(description="Script simulates martingale betting strategy in european roulette.", epilog="Example: python casino_roulette.py -g 1000 -v 100 -l")
-    parser.add_argument('-g', metavar='games', type=int, default=1000, help='Games, number of games to play (in thousands); default = 1000')
+    parser.add_argument('-g', metavar='games', type=int, default=100, help='Games, number of games to play (in thousands); default = 100')
     parser.add_argument('-v', metavar='verbose', type=int, default=100, help='Verbose, how often print an update about gained money (in thousands); default = 100')
     parser.add_argument('-l', action="store_true", help='Loses flag; if active script shows loses statistics')
 
