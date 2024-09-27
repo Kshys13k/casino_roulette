@@ -21,17 +21,19 @@ def game(g,v,l):
         else:
             bet = 1
 
-        if games%(v*100)==0:
+        if (l):
+            if money_gained < 0:
+                time_on_minus += 1
+                if money_gained < max_loss:
+                    max_loss = money_gained
+
+        if games%(v*1000)==0:
             # os.system("clear")
             print("#####################")
             print("Games played: " + str(games))
             print("Money gained: " + str(money_gained))
             print("Biggest bet: " + str(biggest_bet))
             if(l):
-                if money_gained < 0:
-                    time_on_minus += 1
-                    if money_gained < max_loss:
-                        max_loss = money_gained
                 print("Max loss: " + str(max_loss) + ", number of games on minus: " + str(time_on_minus))
 
 
@@ -43,9 +45,9 @@ def roulette_simulation(bet):
         return -bet
 
 def main():
-    parser=argparse.ArgumentParser(description=" ", epilog=" ")
-    parser.add_argument('-g', metavar='games', type=int, default=1000, help='Games, number of games to play (in thousands)')
-    parser.add_argument('-v', metavar='verbose', type=int, default=100, help='Verbose, how often print an update about gained money (in hundreds)')
+    parser=argparse.ArgumentParser(description="Script simulates martingale betting strategy in european roulette.", epilog="Example: python casino_roulette.py -g 1000 -v 100 -l")
+    parser.add_argument('-g', metavar='games', type=int, default=1000, help='Games, number of games to play (in thousands); default = 1000')
+    parser.add_argument('-v', metavar='verbose', type=int, default=100, help='Verbose, how often print an update about gained money (in thousands); default = 100')
     parser.add_argument('-l', action="store_true", help='Loses flag; if active script shows loses statistics')
 
     args = parser.parse_args()
